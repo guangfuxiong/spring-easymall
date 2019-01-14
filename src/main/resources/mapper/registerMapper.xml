@@ -6,4 +6,7 @@
     <insert id="addUser" parameterType="com.guangfuxiong.entity.UserInfo">
         insert into user values (#{username},#{password},#{nickname},#{email})
     </insert>
+    <select id="checkName" parameterType="String" resultType="com.guangfuxiong.entity.UserInfo">
+        select * from USER where username = #{userName,jdbcType=VARCHAR}
+    </select>
 </mapper>

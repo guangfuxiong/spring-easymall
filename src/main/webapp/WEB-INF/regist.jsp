@@ -11,6 +11,24 @@
     <title>欢迎注册EasyMall</title>
     <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="${path}/css/regist.css"/>
+    <script src="${path}/js/jquery-1.11.1.min.js"></script>
+    <script>
+        function checkUserName(obj) {
+            var userName = $(obj).val();
+            $.ajax({
+                type:"post",
+                url:"../checkName.do",
+                data:{"userName":userName},
+                success:function (data) {
+                    if(data.code == 1){
+                        $("#msg").val(data.message);
+                    }else {
+                        alert("查询数据异常")
+                    }
+                }
+            });
+        }
+    </script>
 </head>
 <body>
 <form action="${path}/register.do" method="POST">
@@ -19,7 +37,8 @@
         <tr>
             <td class="tds">用户名：</td>
             <td>
-                <input type="text" name="username"/>
+                <input type="text" name="username" onblur="checkUserName(this)"/>
+                <span id="msg" style="color:red"></span>
             </td>
         </tr>
         <tr>
