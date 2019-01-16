@@ -42,8 +42,7 @@ public class RegisterController {
         return "registerFiledTip";
     }
     @RequestMapping(value = "checkName")
-    @ResponseBody
-    public ResultRet checkName(String userName){
+    public @ResponseBody ResultRet checkName(String userName){
         ResultRet result = new ResultRet();
         try {
             UserInfo user = registerService.checkName(userName);

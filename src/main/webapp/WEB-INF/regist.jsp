@@ -21,7 +21,7 @@
                 data:{"userName":userName},
                 success:function (data) {
                     if(data.code == 1){
-                        $("#msg").val(data.message);
+                        $("#msg").text(data.message);
                     }else {
                         alert("查询数据异常")
                     }
