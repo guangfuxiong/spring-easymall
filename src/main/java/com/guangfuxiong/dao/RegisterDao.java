@@ -5,4 +5,5 @@ import com.guangfuxiong.entity.UserInfo;
 public interface RegisterDao {
     Integer addUser(UserInfo userInfo);
     UserInfo checkName(String userName);
+    Integer loginInto(UserInfo userInfo);
 }

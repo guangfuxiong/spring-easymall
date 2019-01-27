@@ -19,4 +19,12 @@ public class RegisterServiceImpl extends SqlSessionFactoryBuilder implements Reg
         return registerDao.checkName(userName);
     }
 
+    public Boolean loginInto(UserInfo userInfo) {
+        Integer num = registerDao.loginInto(userInfo);
+        if(0==num){
+            return false;
+        }
+        return true;
+    }
+
 }

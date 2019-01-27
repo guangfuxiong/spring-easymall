@@ -9,4 +9,7 @@
     <select id="checkName" parameterType="String" resultType="com.guangfuxiong.entity.UserInfo">
         select * from USER where username = #{userName,jdbcType=VARCHAR}
     </select>
+    <select id="loginInto" parameterType="com.guangfuxiong.entity.UserInfo" resultType="Integer">
+        select count(*) from user where username = #{username} and password = #{password}
+    </select>
 </mapper>

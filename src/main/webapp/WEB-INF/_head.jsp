@@ -5,7 +5,13 @@
 <div id="common_head">
     <div id="line1">
         <div id="content">
-            <a href="${path}/toPage/toLogin.do">登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="${path}/toPage/regist.do">注册</a>
+            <% if(request.getSession(false)==null || request.getSession().getAttribute("user") == null){%>
+                <a href="${path}/toPage/toLogin.do">登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="${path}/toPage/regist.do">注册</a>
+            <%} else {%>
+                <a href="${path}/toPage/toLogin.do">${user}</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="${path}/toPage/outLogin.do">退出登录</a>
+            <%}%>
         </div>
     </div>
     <div id="line2">

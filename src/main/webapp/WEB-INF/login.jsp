@@ -21,11 +21,11 @@
 </head>
 <body>
 <h1>欢迎登陆EasyMall</h1>
-<form action="#" method="POST">
+<form action="${path}/loginInto.do" method="POST">
     <table>
         <tr>
             <td class="tdx">用户名:</td>
-            <td><input type="text" name="username" value=''/></td>
+            <td><input type="text" name="username" value='${userName}'/></td>
         </tr>
         <tr>
             <td class="tdx">密码:</td>
@@ -33,10 +33,11 @@
         </tr>
         <tr>
             <td colspan="2">
-                <input type="checkbox" name="remname" value="true"/>记住用户名
-                <input type="checkbox" name="autologin" value="true"/>30天内自动登陆
+                <input type="checkbox" name="remname" value="true" ${checkedName}/>记住用户名
+                <input type="checkbox" name="autologin" value="true" ${checkedAuto}/>30天内自动登陆
             </td>
         </tr>
+        <tr><span style="color:red;size:14px">${msg}</span></tr>
         <tr>
             <td colspan="2">
                 <input type="submit" value="登陆"/>
